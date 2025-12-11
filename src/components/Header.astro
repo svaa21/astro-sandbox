@@ -1,9 +1,9 @@
 ---
-const pathname = Astro.url.pathname
-const isActive = (path: string) => (pathname === path ? 'text-red-500' : '')
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/'
+console.log('Pathname:', pathname)
 ---
 
 <header>
-  <a href='/' class={isActive('/')}>INDEX</a>
-  <a href='/other' class={isActive('/other')}>OTHER</a>
+  <a class={pathname === '/' ? 'text-red-500' : ''} href='/'>INDEX</a>
+  <a class={pathname === '/other' ? 'text-red-500' : ''} href='/other'>OTHER</a>
 </header>
