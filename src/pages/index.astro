@@ -3,5 +3,14 @@ import Layout from '../layouts/Layout.astro'
 ---
 
 <Layout>
-  <div class='bg-white text-black'>index</div>
+  <form class='flex w-1/2 flex-col' action='/' method='get'>
+    <input class='border p-2' name='name' type='text' placeholder='Nombre' />
+    <button type='submit'>Enviar</button>
+  </form>
 </Layout>
+
+<script>
+  fetch('/api/hello/')
+    .then(res => res.json())
+    .then(data => console.log(data))
+</script>
